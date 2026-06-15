@@ -1,0 +1,220 @@
+==========================================================================
+ PROMPT PARA CODEX — LANDING PAGE "SOLGE AMBIENTAL" (Certificación HuellaChile)
+==========================================================================
+
+ROL
+Actúa como un desarrollador front-end senior y diseñador UI/UX. Vas a construir
+una landing page moderna, de vanguardia, mobile-first, para una consultora
+ambiental chilena (SolGe Ambiental) que ayuda a empresas a medir y certificar su
+huella de carbono ante el Ministerio del Medio Ambiente (programa HuellaChile).
+
+OBJETIVO DE LA PÁGINA
+Convertir visitas en contactos por WhatsApp y en envíos del formulario. Todo el
+diseño debe empujar hacia ese objetivo sin sentirse agresivo: confianza primero,
+acción siempre a la vista.
+
+--------------------------------------------------------------------------
+1. STACK TÉCNICO (OBLIGATORIO)
+--------------------------------------------------------------------------
+- HTML5 semántico + Tailwind CSS para TODO el estilado (no escribir CSS suelto
+  salvo lo estrictamente necesario en una capa @layer).
+- Configura Tailwind con un archivo `tailwind.config.js` que defina la paleta,
+  tipografías y sombras como tokens (NO uses colores hardcodeados sueltos en las
+  clases; usa los tokens del theme). Usa el CLI de Tailwind o PostCSS para
+  compilar a un `output.css`. Como fallback rápido de previsualización puedes
+  dejar comentada la opción del Play CDN, pero la entrega final debe usar build.
+- JavaScript vanilla (sin frameworks) para interacciones: menú móvil, scroll
+  suave, reveals al hacer scroll (IntersectionObserver), validación del
+  formulario y botón flotante de WhatsApp.
+- Sin dependencias pesadas. Cero jQuery. Iconos: usa SVG inline o Lucide/Heroicons
+  vía SVG.
+
+--------------------------------------------------------------------------
+2. FUENTE DEL CONTENIDO (NO INVENTAR TEXTO)
+--------------------------------------------------------------------------
+- Todo el texto visible de la página debe salir del archivo `ContenidoLandingPage.txt`
+  ubicado en la carpeta del proyecto. Léelo y mapéalo a las secciones.
+- El archivo ya viene ordenado por secciones (Hero, ¿Qué es?, Medición, Por qué
+  hoy, Licitaciones, Para qué sirve, Ruta de los 4 sellos, Rigor técnico,
+  Resultados, CTA final, Footer/Contacto). Respeta ese orden y esa jerarquía.
+- Los marcadores [BOTÓN], [CTA] y los enlaces de WhatsApp del archivo indican
+  dónde van los botones de acción. Conviértelos en botones reales.
+- NO inventes datos, cifras, certificaciones ni testimonios que no estén en el
+  archivo. Si el archivo deja un espacio para testimonios, deja un bloque
+  placeholder claramente marcado (sin datos falsos).
+
+--------------------------------------------------------------------------
+3. IMÁGENES (USAR TODAS LAS DE LA CARPETA)
+--------------------------------------------------------------------------
+- Escanea la carpeta de imágenes del proyecto (p. ej. `/images` o `/assets`) y
+  usa TODAS las imágenes disponibles de forma coherente:
+    * Logo "Solge" -> en el header (arriba a la izquierda) y en el footer.
+    * Foto de fondo del hero -> imagen de fondo con overlay verde (ver paleta).
+    * Cualquier otra imagen (procesos, equipo, sellos, naturaleza) -> ilústrala
+      en las secciones que correspondan (rigor técnico, resultados, ruta de
+      sellos), siempre con `loading="lazy"`, `alt` descriptivo y object-fit.
+- Todas las imágenes deben ser responsivas (usa `srcset`/`sizes` cuando aplique)
+  y nunca deformarse. Si una imagen no calza en ningún bloque lógico, ubícala en
+  una galería o banda de apoyo, pero no la descartes.
+- Optimiza: define width/height para evitar layout shift (CLS).
+
+--------------------------------------------------------------------------
+4. PALETA DE COLORES (basada en la marca actual)
+--------------------------------------------------------------------------
+Define estos tokens en tailwind.config.js (theme.extend.colors):
+    brand:        #21A14B   (verde principal de marca)
+    brand-bright: #3DDC6E   (verde brillante para acentos y palabras destacadas)
+    brand-deep:   #14532D   (verde oscuro: overlays, fondos profundos, texto sobre claro)
+    brand-soft:   #E9F8EF   (verde muy claro para fondos de sección alternos)
+    ink:          #18211C   (texto principal, casi negro verdoso)
+    slate:        #5B6B62   (texto secundario / gris)
+    paper:        #FFFFFF   (fondo base)
+    whatsapp:     #25D366   (botones de WhatsApp; usar este verde reconocible)
+
+Uso:
+- Palabras clave destacadas en titulares -> brand-bright (como en el sitio actual:
+  "Huella de Carbono de tu empresa" en verde).
+- Hero -> foto con overlay en degradé de brand-deep (de ~85% opacidad abajo a
+  ~55% arriba) para legibilidad del texto blanco.
+- Botones primarios -> degradé de brand a brand-bright; botones de WhatsApp ->
+  color whatsapp con icono de WhatsApp.
+- Fondos de secciones -> alternar paper / brand-soft para dar ritmo.
+
+--------------------------------------------------------------------------
+5. TIPOGRAFÍA
+--------------------------------------------------------------------------
+- Display/Titulares: una sans geométrica con personalidad y peso (p. ej. "Poppins"
+  o "Sora" o "Manrope") en pesos 600–800.
+- Cuerpo: una sans legible y neutra (p. ej. "Inter" o "Manrope") en 400–500.
+- Carga las fuentes con `font-display: swap`. Define escala de tipos clara:
+  hero grande y contundente en mobile (no se debe encoger demasiado).
+- Sentence case en botones y labels, sin gritar en mayúsculas salvo etiquetas
+  cortas tipo eyebrow.
+
+--------------------------------------------------------------------------
+6. ESTRUCTURA Y SECCIONES
+--------------------------------------------------------------------------
+(A) HEADER (sticky, fondo blanco translúcido con blur al hacer scroll)
+    - Logo Solge a la izquierda.
+    - En desktop: links de navegación ancla (Qué es, Proceso, Resultados,
+      Contacto) + botón verde a la derecha con icono de WhatsApp y el número
+      "+56 9 5069 2595" y bajada "Certificación de Huella de Carbono aquí".
+    - En mobile: logo + botón compacto de WhatsApp + menú hamburguesa que abre
+      un panel con los links.
+
+(B) HERO (alto, impactante)
+    - Foto de fondo con overlay verde (brand-deep) en degradé.
+    - Titular del Hero desde el contenido, con las palabras clave en brand-bright.
+    - Subtítulo + dos botones: [Cotizar por WhatsApp] (primario) y
+      [Conocer el proceso] (secundario, scroll a la sección).
+    - A la derecha (desktop) / debajo (mobile): tarjeta blanca "Contáctanos" con
+      formulario: Nombres*, WhatsApp*, Email*, Nombre de empresa*, y un select o
+      campo de mensaje opcional. Botón "Enviar" en verde.
+    - Línea de confianza: "Atención en todo Chile · Verificación validada por el
+      Ministerio del Medio Ambiente".
+
+(C) SECCIONES DE CONTENIDO (en el orden del archivo)
+    - ¿Qué es la certificación HuellaChile?
+    - ¿Qué es la Medición de Huella de Carbono?
+    - ¿Por qué medir hoy? (regulación: Ley Marco, CBAM, etc.)
+    - Licitaciones (FAQ destacada, con CTA de WhatsApp propio)
+    - ¿Para qué sirve? (lista de beneficios en tarjetas con iconos)
+    - Ruta de los 4 sellos: muéstrala como una progresión/stepper horizontal en
+      desktop y vertical en mobile (01 Cuantificación -> 02 Reducción ->
+      03 Neutralización -> 04 Excelencia). Es una secuencia real, úsala como
+      elemento visual distintivo de la página.
+    - Rigor técnico: bloque de verificación NBC–PUCV + fila de sellos/estándares
+      (GHG Protocol, ISO 14064, NCh-ISO 14067, HuellaChile MMA).
+    - Resultados / prueba social (con placeholder para testimonios si no hay).
+
+(D) CTA FINAL (banda de cierre)
+    - Fondo brand-deep, titular + texto + botón primario de WhatsApp y botón
+      secundario de correo (mailto:phidalgo@solgeambiental.cl).
+
+(E) FOOTER
+    - Logo, datos de contacto (email, +56 9 5069 2595, "Atención en todo Chile"),
+      links rápidos y un aviso legal corto.
+
+(F) BOTÓN FLOTANTE DE WHATSAPP
+    - Fijo abajo a la derecha, visible en toda la página, con leve animación de
+      pulso. Enlaza al WhatsApp con mensaje pre-cargado.
+
+--------------------------------------------------------------------------
+7. ENLACES DE ACCIÓN
+--------------------------------------------------------------------------
+- Todos los botones de WhatsApp apuntan a:
+  https://wa.me/56950692595?text=Hola%20SolGe%20Ambiental,%20quiero%20certificar%20la%20huella%20de%20carbono%20de%20mi%20empresa
+  (puedes variar el texto del mensaje según la sección, p. ej. el de licitaciones).
+- Botón de correo: mailto:phidalgo@solgeambiental.cl
+- Los links de navegación hacen scroll suave a las secciones (anchors con id).
+
+--------------------------------------------------------------------------
+8. COMPORTAMIENTO Y MICROINTERACCIONES
+--------------------------------------------------------------------------
+- Header que cambia (sombra/blur) al hacer scroll.
+- Reveals suaves al entrar las secciones (fade + leve translateY) con
+  IntersectionObserver. Respeta `prefers-reduced-motion`.
+- Hover states claros en botones y tarjetas (sin exagerar).
+- Validación del formulario en cliente: campos requeridos, formato de email y de
+  teléfono chileno. Mostrar mensajes de error en la voz de la interfaz, no
+  genéricos. (El envío real puede quedar como TODO: integrar con
+  WhatsApp/correo/endpoint; deja el handler preparado.)
+
+--------------------------------------------------------------------------
+9. MOBILE-FIRST Y RESPONSIVIDAD
+--------------------------------------------------------------------------
+- Diseña primero para ~375px de ancho y escala hacia arriba con los breakpoints
+  de Tailwind (sm, md, lg, xl).
+- Tipografía y botones cómodos para el pulgar (mínimo 44px de alto en táctiles).
+- El formulario del hero pasa a ocupar el ancho completo debajo del texto en
+  mobile. El stepper de sellos se vuelve vertical. La nav se colapsa en
+  hamburguesa.
+- Nada debe requerir scroll horizontal en ningún tamaño.
+
+--------------------------------------------------------------------------
+10. ACCESIBILIDAD Y PERFORMANCE
+--------------------------------------------------------------------------
+- HTML semántico (header, main, section, nav, footer), jerarquía correcta de
+  encabezados (un solo h1 en el hero).
+- Contraste AA mínimo (cuidado con verde claro sobre blanco en textos pequeños).
+- Foco visible por teclado en todos los interactivos; alt en todas las imágenes;
+  aria-labels en botones de solo icono.
+- Lazy-load de imágenes, dimensiones explícitas, sin CLS. Apunta a buen
+  Lighthouse (Performance, Accessibility, Best Practices, SEO).
+- SEO básico: <title>, meta description, Open Graph, favicon, lang="es",
+  encabezados descriptivos y datos de contacto en el footer.
+
+--------------------------------------------------------------------------
+11. ENTREGABLES / ESTRUCTURA DE ARCHIVOS
+--------------------------------------------------------------------------
+Genera una estructura limpia, por ejemplo:
+    /index.html
+    /src/input.css         (directivas @tailwind + @layer components)
+    /dist/output.css       (CSS compilado)
+    /js/main.js            (menú, scroll, reveals, validación)
+    /images/               (assets existentes)
+    tailwind.config.js
+    package.json           (scripts de build/watch de Tailwind)
+    README.md              (cómo compilar y previsualizar)
+Incluye instrucciones de build en el README.
+
+--------------------------------------------------------------------------
+12. RESTRICCIONES
+--------------------------------------------------------------------------
+- No inventes contenido, cifras ni testimonios fuera de ContenidoLandingPage.txt.
+- No uses imágenes de stock externas: usa solo las de la carpeta del proyecto.
+- No uses frameworks JS ni librerías de UI pesadas.
+- Mantén el código ordenado, comentado donde aporte, y consistente con los tokens
+  del theme.
+- El resultado debe verse profesional, moderno y confiable (es una consultora con
+  respaldo del Ministerio), no llamativo ni "startupero" en exceso.
+
+OBJETIVO FINAL: una landing rápida, accesible, mobile-first, con identidad verde
+de SolGe, que lleve naturalmente al usuario a contactar por WhatsApp o completar
+el formulario.
+
+==========================================================================
+NOTA: si el archivo de contenido tiene otro nombre exacto en la carpeta
+(p. ej. "contenido-landing-solge-ambiental.md"), ajústalo o renómbralo a
+"ContenidoLandingPage.txt" para que coincida con este prompt.
+==========================================================================

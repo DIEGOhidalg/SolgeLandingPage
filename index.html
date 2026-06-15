@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolGe Ambiental | Certificación HuellaChile</title>
+    <meta
+      name="description"
+      content="SolGe Ambiental acompaña a empresas chilenas a medir, reportar y certificar su huella de carbono ante el Ministerio del Medio Ambiente."
+    />
+    <meta property="og:title" content="SolGe Ambiental | Certificación HuellaChile" />
+    <meta
+      property="og:description"
+      content="Acompañamos a tu empresa en el proceso técnico de Huella de Carbono y certificación oficial HuellaChile."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./HuellaChile.jpg" />
+    <link rel="icon" type="image/webp" href="./LogoSolgeAmbiental.webp" />
+    <link rel="stylesheet" href="./dist/css/styles.css" />
+    <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./js/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-3" href="#hero">
+            <img class="brand-logo rounded-circle" src="./LogoSolgeAmbiental.webp" alt="Logo SolGe Ambiental" width="48" height="48" />
+            <span>
+              <span class="d-block fw-bold text-dark">SolGe Ambiental</span>
+              <span class="d-block small text-secondary">Certificación HuellaChile</span>
+            </span>
+          </a>
+
+          <div class="d-flex align-items-center gap-2 d-lg-none">
+            <a class="btn btn-whatsapp btn-sm px-3" href="https://wa.me/56950692595?text=Hola%20SolGe%20Ambiental,%20quiero%20certificar%20la%20huella%20de%20carbono%20de%20mi%20empresa" aria-label="Contactar por WhatsApp">WA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Abrir menú">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end gap-4">
+            <ul class="navbar-nav align-items-lg-center gap-lg-2">
+              <li class="nav-item"><a class="nav-link" href="#que-es">Qué es</a></li>
+              <li class="nav-item"><a class="nav-link" href="#proceso">Proceso</a></li>
+              <li class="nav-item"><a class="nav-link" href="#resultados">Resultados</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            </ul>
+            <a class="btn btn-whatsapp" href="https://wa.me/56950692595?text=Hola%20SolGe%20Ambiental,%20quiero%20certificar%20la%20huella%20de%20carbono%20de%20mi%20empresa">
+              +56 9 5069 2595
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header">
+          <h2 class="offcanvas-title h5" id="mobileMenuLabel">SolGe Ambiental</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="nav flex-column gap-2">
+            <a class="nav-link" href="#que-es">Qué es</a>
+            <a class="nav-link" href="#proceso">Proceso</a>
+            <a class="nav-link" href="#resultados">Resultados</a>
+            <a class="nav-link" href="#contacto">Contacto</a>
+            <a class="btn btn-whatsapp mt-3" href="https://wa.me/56950692595?text=Hola%20SolGe%20Ambiental,%20quiero%20certificar%20la%20huella%20de%20carbono%20de%20mi%20empresa">Certificación de Huella de Carbono aquí</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero section-pad">
+        <div class="container">
+          <div class="row align-items-center gy-5">
+            <div class="col-lg-7 fade-up">
+              <p class="eyebrow text-lime">Programa HuellaChile</p>
+              <h1 class="hero-title mb-4">
+                Conoce la <span class="text-highlight">huella de carbono</span> de tu empresa y certifícala ante el Ministerio del Medio Ambiente
+              </h1>
+              <p class="hero-subtitle fs-5 mb-4">
+                Te acompañamos en todo el proceso técnico para medir, reportar y reducir tus emisiones, y obtener el reconocimiento oficial del programa HuellaChile. Respaldo válido para licitaciones, sostenibilidad y reputación corporativa.
+              </p>
+              <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
+                <button class="btn btn-primary whatsapp-action" type="button" data-message="Hola SolGe Ambiental, quiero certificar la huella de carbono de mi empresa.">Cotizar por WhatsApp</button>
+                <a class="btn btn-outline-light" href="#proceso">Conocer el proceso</a>
+              </div>
+              <p class="trust-line mb-0">Atención en todo Chile · Verificación validada por el Ministerio del Medio Ambiente</p>
+            </div>
+
+            <div class="col-lg-5 fade-up">
+              <aside class="contact-card p-4 p-md-5">
+                <p class="eyebrow mb-2">Contáctanos</p>
+                <p class="text-secondary mb-4">Agenda una asesoría rápida por WhatsApp y recibe orientación gratuita para certificar tu huella.</p>
+                <form id="contact-form" novalidate>
+                  <div class="mb-3">
+                    <label class="form-label" for="names">Nombres*</label>
+                    <input class="form-control" id="names" name="names" type="text" autocomplete="name" required />
+                    <div class="invalid-feedback field-error"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="whatsapp">WhatsApp*</label>
+                    <input class="form-control" id="whatsapp" name="whatsapp" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel" required />
+                    <div class="invalid-feedback field-error"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="email">Email*</label>
+                    <input class="form-control" id="email" name="email" type="email" placeholder="tucorreo@empresa.cl" autocomplete="email" required />
+                    <div class="invalid-feedback field-error"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="company">Nombre de empresa*</label>
+                    <input class="form-control" id="company" name="company" type="text" autocomplete="organization" required />
+                    <div class="invalid-feedback field-error"></div>
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label" for="message">Mensaje opcional</label>
+                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                  </div>
+                  <button class="btn btn-primary w-100" type="submit">Enviar</button>
+                </form>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-bar" aria-label="Estándares y respaldos">
+        <div class="container">
+          <div class="trust-strip fade-up">
+            <span class="trust-item">Ministerio del Medio Ambiente</span>
+            <span class="trust-item">HuellaChile</span>
+            <span class="trust-item">GHG Protocol</span>
+            <span class="trust-item">ISO 14064</span>
+            <span class="trust-item">NCh-ISO 14067</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="que-es" class="section-pad bg-white">
+        <div class="container">
+          <div class="row gy-5 align-items-center">
+            <div class="col-lg-7 fade-up">
+              <p class="eyebrow">¿Qué es la certificación HuellaChile?</p>
+              <h2 class="section-title mb-4">Reconocimiento oficial que respalda tus emisiones</h2>
+              <p class="lead-copy">
+                La certificación HuellaChile es un reconocimiento oficial entregado por el Ministerio del Medio Ambiente de Chile que valida que tu empresa ha medido, reportado y gestionado su huella de carbono de forma profesional, siguiendo estándares internacionales como el GHG Protocol, la ISO 14064 y la NCh-ISO 14067 (para huella de productos).
+              </p>
+              <p class="lead-copy">
+                No es un sello de marketing: es el respaldo del Estado de que tus datos de emisiones son confiables, verificables y comparables. Hoy, ese respaldo se ha convertido en la diferencia entre quedar dentro o fuera de un contrato.
+              </p>
+              <div class="surface-card p-4 mt-4">
+                <h3 class="h5">¿Quieres saber en qué nivel está tu empresa hoy?</h3>
+                <p class="text-secondary">Hablemos por WhatsApp y te orientamos en tu punto de partida.</p>
+                <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, quiero saber en qué nivel está mi empresa hoy.">Hablemos por WhatsApp</button>
+              </div>
+            </div>
+            <div class="col-lg-5 fade-up">
+              <div class="photo-frame ratio ratio-4x3">
+                <img src="./ImagenHuellaDeCarbono.jpg" alt="Ilustración de medición de huella de carbono" width="1200" height="800" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proceso" class="section-pad bg-sage">
+        <div class="container">
+          <div class="row gy-5 align-items-center">
+            <div class="col-lg-6 fade-up">
+              <p class="eyebrow">¿Qué es la medición de huella de carbono?</p>
+              <h2 class="section-title mb-4">Una radiografía clara de tus emisiones</h2>
+              <p class="lead-copy">
+                Es el proceso técnico de cuantificar la totalidad de los Gases de Efecto Invernadero (GEI) que tu organización emite de forma directa e indirecta. No es solo un número: es una radiografía detallada de cómo tu empresa consume energía y recursos, y de dónde están tus mayores costos e ineficiencias ocultas.
+              </p>
+              <p class="lead-copy">
+                Medir es el primer paso. Sin una línea base sólida y bien levantada, no es posible reducir, ni certificar, ni responder a las exigencias del mercado.
+              </p>
+            </div>
+            <div class="col-lg-6 fade-up">
+              <div class="row g-4">
+                <div class="col-sm-5">
+                  <div class="surface-card p-4 h-100 d-flex align-items-center justify-content-center">
+                    <img src="./ImagenHuella.png" alt="Badge Huella de Carbono" width="300" height="300" class="img-fluid" loading="lazy" />
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <div class="photo-frame ratio ratio-4x3 h-100">
+                    <img src="./ImagenHuellaDeCarbono2.jpg" alt="Representación de evaluación de emisiones de GEI" width="1200" height="800" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="por-que" class="section-pad bg-bone">
+        <div class="container">
+          <div class="row gy-5 align-items-center">
+            <div class="col-lg-5 fade-up">
+              <div class="row g-3">
+                <div class="col-12">
+                  <div class="photo-frame ratio ratio-16x9">
+                    <img src="./Pollution.jpg" alt="Emisiones de chimenea industrial" width="1200" height="800" loading="lazy" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="photo-frame ratio ratio-16x9">
+                    <img src="./TrafficJam.jpg" alt="Congestión vehicular y emisiones" width="1200" height="800" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 fade-up">
+              <p class="eyebrow">¿Por qué es importante medir hoy?</p>
+              <h2 class="section-title mb-4">El mercado y la regulación ya no esperan</h2>
+              <p class="lead-copy">El mercado cambió. Inversionistas, clientes corporativos y consumidores exigen transparencia climática real, no promesas. Y la regulación va en la misma dirección:</p>
+              <div class="accordion mt-4" id="regulationAccordion">
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#lawPanel" aria-expanded="true" aria-controls="lawPanel">Ley Marco de Cambio Climático (Chile)</button>
+                  </h3>
+                  <div id="lawPanel" class="accordion-collapse collapse show" data-bs-parent="#regulationAccordion">
+                    <div class="accordion-body">Establece la meta país de carbono neutralidad al 2050 y empuja al sector productivo a reportar y reducir emisiones.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pressurePanel" aria-expanded="false" aria-controls="pressurePanel">Presión internacional</button>
+                  </h3>
+                  <div id="pressurePanel" class="accordion-collapse collapse" data-bs-parent="#regulationAccordion">
+                    <div class="accordion-body">Mecanismos como el CBAM en Europa (impuesto al carbono en frontera) y las exigencias de divulgación en EE.UU. ya condicionan a quién le compran las grandes cadenas de valor.</div>
+                  </div>
+                </div>
+              </div>
+              <p class="lead-copy mt-4 mb-0">Lo que ayer era voluntario y diferenciador, hoy se está volviendo un requisito de entrada al mercado.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="licitaciones" class="section-pad bg-white">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 fade-up">
+              <div class="surface-card p-4 p-lg-5">
+                <p class="eyebrow">Pregunta frecuente</p>
+                <h2 class="section-title mb-4">"Me están pidiendo medir mi huella en las licitaciones. ¿Por qué?"</h2>
+                <p class="lead-copy">Porque la medición de huella de carbono dejó de ser un atributo "extra" y pasó a ser, en muchos casos, un requisito excluyente en licitaciones públicas y privadas.</p>
+                <p class="lead-copy">Impulsado por la Ley Marco de Cambio Climático y la meta de carbono neutralidad al 2050, el Estado está usando su poder de compra para traccionar al mercado: exige a sus proveedores reportar emisiones verificables. Las grandes empresas privadas replican esta exigencia hacia toda su cadena de suministro.</p>
+                <p class="lead-copy">En la práctica, esto significa que medir hoy no es solo responsabilidad ambiental: es continuidad comercial. Es la condición para seguir siendo elegible en contratos de alto valor.</p>
+                <div class="d-flex flex-column flex-md-row align-items-md-center gap-3 mt-4">
+                  <p class="mb-0 fw-semibold">Si te llegó una licitación que exige reportar tu huella, no la dejes pasar.</p>
+                  <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, tengo una licitación que exige medir huella de carbono.">Resolver mi licitación por WhatsApp</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="para-que" class="section-pad bg-sage">
+        <div class="container">
+          <div class="fade-up mb-5">
+            <p class="eyebrow">¿Para qué sirve concretamente?</p>
+            <h2 class="section-title">Medir y certificar tu huella de carbono te permite</h2>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-xl fade-up">
+              <article class="benefit-card">
+                <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12M4 19h16M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <h3 class="h5">Acceder a licitaciones y contratos</h3>
+                <p class="text-secondary mb-0">Acceder a licitaciones y contratos que exigen criterios ambientales y ESG.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl fade-up">
+              <article class="benefit-card">
+                <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 10h14M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <h3 class="h5">Detectar ineficiencias</h3>
+                <p class="text-secondary mb-0">Detectar ineficiencias operativas y reducir costos de energía y recursos.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl fade-up">
+              <article class="benefit-card">
+                <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7v6c0 4 3 7 8 8 5-1 8-4 8-8V7l-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+                <h3 class="h5">Anticiparte a la regulación</h3>
+                <p class="text-secondary mb-0">Anticiparte a la regulación y gestionar riesgos futuros antes de que sean obligación.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl fade-up">
+              <article class="benefit-card">
+                <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19c5-1 8-4 9-9 2 1 4 1 7 0-1 6-5 9-11 10M8 15l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <h3 class="h5">Fijar metas de reducción</h3>
+                <p class="text-secondary mb-0">Establecer una línea base sólida para fijar metas de reducción, por ejemplo bajo SBTi.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl fade-up">
+              <article class="benefit-card">
+                <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.9-5.4 2.9 1-6-4.4-4.3 6.1-.9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+                <h3 class="h5">Fortalecer reputación</h3>
+                <p class="text-secondary mb-0">Fortalecer tu reputación ante clientes, inversionistas y consumidores.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ruta" class="section-pad bg-bone">
+        <div class="container">
+          <div class="fade-up mb-5">
+            <p class="eyebrow">La ruta de certificación</p>
+            <h2 class="section-title mb-3">Los 4 sellos HuellaChile</h2>
+            <p class="lead-copy col-lg-8">HuellaChile reconoce el avance de cada organización mediante una secuencia de sellos. No hay que llegar al final de inmediato: el camino se construye paso a paso, y nosotros te acompañamos en cada uno.</p>
+          </div>
+          <div class="stepper p-3 p-lg-4 fade-up">
+            <ol class="step-list">
+              <li class="step-item">
+                <span class="step-number">01</span>
+                <h3 class="h5">Sello de Cuantificación</h3>
+                <p class="text-secondary mb-0">Mides y reportas tus emisiones de GEI siguiendo el estándar. Es la base de todo y, en general, lo que hoy exigen las licitaciones.</p>
+              </li>
+              <li class="step-item">
+                <span class="step-number">02</span>
+                <h3 class="h5">Sello de Reducción</h3>
+                <p class="text-secondary mb-0">Demuestras que disminuiste tus emisiones respecto a tu línea base. Aquí la medición se traduce en ahorro y gestión.</p>
+              </li>
+              <li class="step-item">
+                <span class="step-number">03</span>
+                <h3 class="h5">Sello de Neutralización</h3>
+                <p class="text-secondary mb-0">Compensas las emisiones que no pudiste reducir, alcanzando un balance neutro.</p>
+              </li>
+              <li class="step-item">
+                <span class="step-number">04</span>
+                <h3 class="h5">Sello de Excelencia</h3>
+                <p class="text-secondary mb-0">El máximo reconocimiento del programa, reservado a las organizaciones con un desempeño ejemplar en cuantificación y reducción.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="surface-card p-4 mt-4 fade-up">
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+              <div>
+                <h3 class="h5">¿No sabes por dónde partir?</h3>
+                <p class="text-secondary mb-0">Te decimos cuál sello te conviene primero.</p>
+              </div>
+              <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, necesito orientación para elegir el sello correcto en HuellaChile.">Pedir orientación por WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="rigor" class="section-pad bg-white">
+        <div class="container">
+          <div class="credibility-card p-4 p-lg-5 fade-up">
+            <div class="row gy-5 align-items-center">
+              <div class="col-lg-7">
+                <p class="eyebrow">Rigor técnico</p>
+                <h2 class="section-title mb-4">Resultados que se pueden verificar</h2>
+                <p class="lead-copy">Nuestro trabajo se sostiene en estándares y en verificación independiente, no en buenas intenciones.</p>
+                <p class="lead-copy">El proceso de cuantificación fue verificado por NBC (Núcleo Biotecnología Curauma), una entidad validada por el Ministerio del Medio Ambiente y perteneciente a la Pontificia Universidad Católica de Valparaíso. Esta verificación externa refuerza la validez y rigurosidad de los resultados, y es justamente lo que da peso a tu certificación frente a un auditor, un cliente o una licitación.</p>
+                <div class="standards d-flex flex-wrap gap-2 mt-4">
+                  <span class="badge rounded-pill text-bg-sage text-dark">GHG Protocol</span>
+                  <span class="badge rounded-pill text-bg-sage text-dark">ISO 14064</span>
+                  <span class="badge rounded-pill text-bg-sage text-dark">NCh-ISO 14067</span>
+                  <span class="badge rounded-pill text-bg-sage text-dark">Validación NBC - PUCV</span>
+                  <span class="badge rounded-pill text-bg-sage text-dark">Programa HuellaChile (MMA)</span>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="row g-3">
+                  <div class="col-sm-6 col-lg-12">
+                    <div class="logo-card">
+                      <img src="./EntidadVerificadora1.webp" alt="Entidad verificadora NBC PUCV" width="800" height="500" loading="lazy" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-12">
+                    <div class="logo-card">
+                      <img src="./EntidadVerificadora2.webp" alt="Pontificia Universidad Católica de Valparaíso" width="800" height="500" loading="lazy" />
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="photo-frame ratio ratio-16x9">
+                      <img src="./HuellaChile.jpg" alt="Programa HuellaChile del Ministerio del Medio Ambiente" width="900" height="600" loading="lazy" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultados" class="section-pad bg-sage">
+        <div class="container">
+          <div class="row gy-5 align-items-center">
+            <div class="col-lg-6 fade-up">
+              <p class="eyebrow">Resultados</p>
+              <h2 class="section-title mb-4">Resultados que hablan por sí solos</h2>
+              <p class="lead-copy">Nuestros clientes ya están marcando la diferencia.</p>
+              <p class="lead-copy">Gracias a nuestro acompañamiento técnico, varias empresas han logrado obtener el Diploma de Reconocimiento de HuellaChile entregado por el Ministerio del Medio Ambiente de Chile.</p>
+              <p class="lead-copy">No solo levantamos un informe: te dejamos en condiciones de competir, reportar y crecer con respaldo oficial.</p>
+              <div class="social-placeholder surface-card p-4 mt-4">
+                <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <h3 class="h5">Prueba social preparada</h3>
+                <p class="text-secondary mb-0">Placeholder para testimonios reales de clientes o logos de empresas certificadas cuando estén disponibles. Sin datos inventados.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 fade-up">
+              <div id="certificateCarousel" class="certificate-carousel carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <figure class="certificate-frame">
+                      <span class="certificate-tag">Nivel Cuantificación</span>
+                      <img src="./CertificadoParaEmpresa1.webp" alt="Diploma de Reconocimiento de HuellaChile" width="1200" height="900" loading="lazy" />
+                      <figcaption>Diploma de Reconocimiento HuellaChile - nivel Cuantificación, verificado por NBC-PUCV.</figcaption>
+                    </figure>
+                  </div>
+                  <div class="carousel-item">
+                    <figure class="certificate-frame">
+                      <span class="certificate-tag">Respaldo oficial</span>
+                      <img src="./CertificadoParaEmpresa2.webp" alt="Documento de certificación HuellaChile" width="1200" height="900" loading="lazy" />
+                      <figcaption>Documento de certificación HuellaChile con respaldo del Ministerio del Medio Ambiente.</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#certificateCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#certificateCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Siguiente</span>
+                </button>
+              </div>
+              <button class="btn btn-whatsapp whatsapp-action mt-4" type="button" data-message="Hola SolGe Ambiental, quiero estos resultados para mi empresa.">Quiero estos resultados para mi empresa</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta-final" class="cta-band section-pad">
+        <div class="container">
+          <div class="row align-items-center gy-4">
+            <div class="col-lg-8 fade-up">
+              <p class="eyebrow text-lime">¿Listo para certificar?</p>
+              <h2 class="display-5 text-white mb-3">¿Listo para certificar la huella de carbono de tu empresa?</h2>
+              <p class="fs-5 mb-0">Obtén el respaldo oficial del Ministerio del Medio Ambiente y destaca en licitaciones, sostenibilidad y reputación corporativa. Te acompañamos en todo el proceso, en cualquier región de Chile.</p>
+            </div>
+            <div class="col-lg-4 fade-up">
+              <div class="d-grid gap-3">
+                <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, quiero empezar mi certificación hoy.">Empezar mi certificación hoy</button>
+                <a class="btn btn-outline-light" href="mailto:phidalgo@solgeambiental.cl">Escríbenos un correo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="section-pad bg-dark text-white">
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-lg-5 fade-up">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <img class="brand-logo rounded-circle bg-white" src="./LogoSolgeAmbiental.webp" alt="Logo SolGe Ambiental" width="48" height="48" />
+              <div>
+                <p class="h5 mb-0 text-white">SolGe Ambiental</p>
+                <p class="mb-0 text-white-50">Calcula y certifica tu Huella de Carbono con respaldo del Ministerio del Medio Ambiente.</p>
+              </div>
+            </div>
+            <p><strong>Email:</strong> <a class="link-light" href="mailto:phidalgo@solgeambiental.cl">phidalgo@solgeambiental.cl</a></p>
+            <p><strong>Teléfono:</strong> <a class="link-light" href="tel:+56950692595">+56 9 5069 2595</a></p>
+            <p class="mb-0">Atención en todo Chile</p>
+          </div>
+          <div class="col-md-6 col-lg-3 fade-up">
+            <p class="eyebrow text-lime">Links rápidos</p>
+            <ul class="list-unstyled d-grid gap-2">
+              <li><a class="link-light link-offset-2" href="#que-es">Qué es</a></li>
+              <li><a class="link-light link-offset-2" href="#proceso">Proceso</a></li>
+              <li><a class="link-light link-offset-2" href="#resultados">Resultados</a></li>
+              <li><a class="link-light link-offset-2" href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-up">
+            <p class="eyebrow text-lime">Aviso legal</p>
+            <p class="text-white-50 mb-0">Los datos y procesos descritos aquí reflejan el enfoque técnico de SolGe Ambiental para la certificación HuellaChile. Verifica siempre con el Ministerio del Medio Ambiente los requisitos actuales del programa.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a class="floating-whatsapp" href="https://wa.me/56950692595?text=Hola%20SolGe%20Ambiental,%20quiero%20certificar%20la%20huella%20de%20carbono%20de%20mi%20empresa" aria-label="Contactar por WhatsApp">
+      <span aria-hidden="true">WA</span>
+    </a>
+  </body>
+</html>

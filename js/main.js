@@ -1,0 +1,138 @@
+const header = document.querySelector(".site-header");
+const revealElements = document.querySelectorAll(".fade-up");
+const form = document.querySelector("#contact-form");
+const mobileMenu = document.querySelector("#mobileMenu");
+const whatsappBase = "https://wa.me/56950692595?text=";
+const defaultWhatsAppMessage = "Hola SolGe Ambiental, quiero certificar la huella de carbono de mi empresa.";
+
+function updateHeader() {
+  if (!header) return;
+  header.classList.toggle("is-scrolled", window.scrollY > 20);
+}
+
+updateHeader();
+window.addEventListener("scroll", updateHeader, { passive: true });
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.14 }
+  );
+
+  revealElements.forEach((element, index) => {
+    element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 80}ms`);
+    observer.observe(element);
+  });
+} else {
+  revealElements.forEach((element) => element.classList.add("is-visible"));
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", (event) => {
+    const targetId = anchor.getAttribute("href");
+    const target = targetId && targetId !== "#" ? document.querySelector(targetId) : null;
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (mobileMenu && window.bootstrap) {
+      const instance = window.bootstrap.Offcanvas.getInstance(mobileMenu);
+      instance?.hide();
+    }
+  });
+});
+
+function setFieldError(field, message) {
+  const feedback = field.parentElement.querySelector(".field-error");
+  field.classList.add("is-invalid");
+  field.setAttribute("aria-invalid", "true");
+  if (feedback) feedback.textContent = message;
+}
+
+function clearFieldError(field) {
+  const feedback = field.parentElement.querySelector(".field-error");
+  field.classList.remove("is-invalid");
+  field.removeAttribute("aria-invalid");
+  if (feedback) feedback.textContent = "";
+}
+
+function validateEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function validatePhone(value) {
+  const cleaned = value.replace(/[^\d+]/g, "");
+  return /^(?:\+?56)?9\d{8}$/.test(cleaned);
+}
+
+function buildWhatsAppLink(values) {
+  const message = `Hola SolGe Ambiental, quiero certificar la huella de carbono de mi empresa. Mi nombre es ${values.names}. Empresa: ${values.company}. WhatsApp: ${values.whatsapp}. Email: ${values.email}.${values.message ? ` Mensaje: ${values.message}` : ""}`;
+  return whatsappBase + encodeURIComponent(message);
+}
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const fields = {
+    names: form.querySelector("#names"),
+    whatsapp: form.querySelector("#whatsapp"),
+    email: form.querySelector("#email"),
+    company: form.querySelector("#company"),
+    message: form.querySelector("#message"),
+  };
+
+  let isValid = true;
+
+  [
+    [fields.names, "Cuéntanos tu nombre para poder responderte."],
+    [fields.whatsapp, "Déjanos un WhatsApp chileno para contactarte."],
+    [fields.email, "Necesitamos un correo para enviarte información."],
+    [fields.company, "Indica el nombre de tu empresa."],
+  ].forEach(([field, message]) => {
+    if (!field.value.trim()) {
+      setFieldError(field, message);
+      isValid = false;
+    } else {
+      clearFieldError(field);
+    }
+  });
+
+  if (fields.whatsapp.value.trim() && !validatePhone(fields.whatsapp.value)) {
+    setFieldError(fields.whatsapp, "Ingresa un número chileno válido, por ejemplo +56 9 1234 5678.");
+    isValid = false;
+  }
+
+  if (fields.email.value.trim() && !validateEmail(fields.email.value)) {
+    setFieldError(fields.email, "Ingresa un correo válido, por ejemplo nombre@empresa.cl.");
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  window.open(
+    buildWhatsAppLink({
+      names: fields.names.value.trim(),
+      whatsapp: fields.whatsapp.value.trim(),
+      email: fields.email.value.trim(),
+      company: fields.company.value.trim(),
+      message: fields.message?.value.trim() || "",
+    }),
+    "_blank",
+    "noopener"
+  );
+});
+
+document.querySelectorAll(".whatsapp-action").forEach((button) => {
+  button.addEventListener("click", () => {
+    const message = button.dataset.message || defaultWhatsAppMessage;
+    window.open(whatsappBase + encodeURIComponent(message), "_blank", "noopener");
+  });
+});

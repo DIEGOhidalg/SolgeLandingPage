@@ -1,0 +1,13 @@
+{
+  "name": "solge-ambiental-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "sass --style=compressed ./scss/custom.scss ./dist/css/styles.css",
+    "watch": "sass --watch ./scss/custom.scss:./dist/css/styles.css"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.101.0"
+  }
+}

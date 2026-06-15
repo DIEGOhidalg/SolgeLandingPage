@@ -1,0 +1,52 @@
+$brand: #17914a;
+$brand-700: #0e6b36;
+$lime: #a3e635;
+$sage: #eaf1ea;
+$bone: #f6f4ee;
+$gold: #c9a23f;
+$whatsapp: #25d366;
+$dark-green: #0f2a1d;
+$ink: #1a2a20;
+$slate: #5b6b62;
+
+$primary: $brand;
+$dark: $dark-green;
+$success: $brand;
+$body-color: $ink;
+$body-bg: #fff;
+$font-size-base: 1.0625rem;
+$link-color: $brand-700;
+$link-hover-color: $brand;
+
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+$headings-font-family: "Clash Display", "Inter", system-ui, sans-serif;
+$headings-font-weight: 650;
+$headings-color: $dark-green;
+$line-height-base: 1.6;
+
+$border-radius: .75rem;
+$border-radius-lg: 1.25rem;
+$border-radius-xl: 1.75rem;
+$box-shadow: 0 1px 2px rgba(15, 42, 29, .06), 0 12px 32px -8px rgba(15, 42, 29, .18);
+$box-shadow-lg: 0 22px 70px -20px rgba(15, 42, 29, .28);
+
+$input-border-color: rgba(15, 42, 29, .16);
+$input-focus-border-color: $brand;
+$input-focus-box-shadow: 0 0 0 .25rem rgba(163, 230, 53, .2);
+$btn-border-radius: 999px;
+$btn-padding-y: .78rem;
+$btn-padding-x: 1.2rem;
+$navbar-toggler-focus-width: .15rem;
+
+$theme-colors: (
+  "primary": $primary,
+  "success": $success,
+  "dark": $dark,
+  "brand": $brand,
+  "brand-700": $brand-700,
+  "lime": $lime,
+  "sage": $sage,
+  "bone": $bone,
+  "gold": $gold,
+  "whatsapp": $whatsapp
+);

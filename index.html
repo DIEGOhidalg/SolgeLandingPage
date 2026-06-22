@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SolGe Ambiental | Certificación HuellaChile</title>
+    <title>SolGe Ambiental | Licitaciones con Certificación HuellaChile</title>
     <meta
       name="description"
-      content="SolGe Ambiental acompaña a empresas chilenas a medir, reportar y certificar su huella de carbono ante el Ministerio del Medio Ambiente."
+      content="SolGe Ambiental acompaña a empresas chilenas a postular a licitaciones con medición y certificación de Huella de Carbono HuellaChile."
     />
-    <meta property="og:title" content="SolGe Ambiental | Certificación HuellaChile" />
+    <meta property="og:title" content="SolGe Ambiental | Licitaciones con Certificación HuellaChile" />
     <meta
       property="og:description"
-      content="Acompañamos a tu empresa en el proceso técnico de Huella de Carbono y certificación oficial HuellaChile."
+      content="Prepara a tu empresa para licitaciones que exigen Huella de Carbono, reporte de emisiones y certificación oficial HuellaChile."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./HuellaChile.jpg" />
@@ -24,12 +24,8 @@
     <header class="site-header sticky-top">
       <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
         <div class="container">
-          <a class="navbar-brand d-flex align-items-center gap-3" href="#hero">
-            <img class="brand-logo rounded-circle" src="./LogoSolgeAmbiental.webp" alt="Logo SolGe Ambiental" width="48" height="48" />
-            <span>
-              <span class="d-block fw-bold text-dark">SolGe Ambiental</span>
-              <span class="d-block small text-secondary">Certificación HuellaChile</span>
-            </span>
+          <a class="navbar-brand brand-only d-flex align-items-center" href="#hero" aria-label="SolGe Ambiental">
+            <img class="brand-logo" src="./LogoSolgeAmbiental.webp" alt="SolGe Ambiental" width="150" height="56" />
           </a>
 
           <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -75,25 +71,26 @@
         <div class="container">
           <div class="row align-items-center gy-5">
             <div class="col-lg-7 fade-up">
-              <p class="eyebrow text-lime">Programa HuellaChile</p>
+              <p class="eyebrow text-lime">Licitaciones y HuellaChile</p>
               <h1 class="hero-title mb-4">
-                Conoce la <span class="text-highlight">huella de carbono</span> de tu empresa y certifícala ante el Ministerio del Medio Ambiente
+                Postula a licitaciones con tu <span class="text-highlight">certificación de Huella de Carbono</span>
               </h1>
               <p class="hero-subtitle fs-5 mb-4">
-                Te acompañamos en todo el proceso técnico para medir, reportar y reducir tus emisiones, y obtener el reconocimiento oficial del programa HuellaChile. Respaldo válido para licitaciones, sostenibilidad y reputación corporativa.
+                Te ayudamos a medir, reportar y certificar tu huella para cumplir bases de licitación, responder exigencias ESG y presentar respaldo oficial del programa HuellaChile ante clientes públicos y privados.
               </p>
               <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
-                <button class="btn btn-primary whatsapp-action" type="button" data-message="Hola SolGe Ambiental, quiero certificar la huella de carbono de mi empresa.">Cotizar por WhatsApp</button>
-                <a class="btn btn-outline-light" href="#proceso">Conocer el proceso</a>
+                <button class="btn btn-primary whatsapp-action" type="button" data-message="Hola SolGe Ambiental, necesito certificar mi Huella de Carbono para una licitación.">Cotizar para mi licitación</button>
+                <a class="btn btn-outline-light" href="#licitaciones">Ver cómo ayuda</a>
               </div>
-              <p class="trust-line mb-0">Atención en todo Chile · Verificación validada por el Ministerio del Medio Ambiente</p>
+              <p class="trust-line mb-0">Atención en todo Chile · Documentación preparada para procesos de compra y auditoría</p>
             </div>
 
             <div class="col-lg-5 fade-up">
               <aside class="contact-card p-4 p-md-5">
                 <p class="eyebrow mb-2">Contáctanos</p>
-                <p class="text-secondary mb-4">Agenda una asesoría rápida por WhatsApp y recibe orientación gratuita para certificar tu huella.</p>
-                <form id="contact-form" novalidate>
+                <p class="text-secondary mb-4">Cuéntanos de tu licitación y te orientamos con los pasos para certificar tu huella.</p>
+                <form id="contact-form" action="./send-lead.php" method="post" novalidate>
+                  <input type="text" name="website" tabindex="-1" autocomplete="off" class="d-none" aria-hidden="true" />
                   <div class="mb-3">
                     <label class="form-label" for="names">Nombres*</label>
                     <input class="form-control" id="names" name="names" type="text" autocomplete="name" required />
@@ -115,10 +112,11 @@
                     <div class="invalid-feedback field-error"></div>
                   </div>
                   <div class="mb-4">
-                    <label class="form-label" for="message">Mensaje opcional</label>
-                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                    <label class="form-label" for="message">Licitación o requisito que necesitas cumplir</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" placeholder="Ej: bases piden HuellaChile, cuantificación GEI o reporte de emisiones"></textarea>
                   </div>
-                  <button class="btn btn-primary w-100" type="submit">Enviar</button>
+                  <div id="form-status" class="form-status mb-3" role="status" aria-live="polite"></div>
+                  <button class="btn btn-primary w-100" type="submit">Enviar solicitud</button>
                 </form>
               </aside>
             </div>
@@ -143,12 +141,12 @@
           <div class="row gy-5 align-items-center">
             <div class="col-lg-7 fade-up">
               <p class="eyebrow">¿Qué es la certificación HuellaChile?</p>
-              <h2 class="section-title mb-4">Reconocimiento oficial que respalda tus emisiones</h2>
+              <h2 class="section-title mb-4">Respaldo oficial para competir con mejores antecedentes</h2>
               <p class="lead-copy">
                 La certificación HuellaChile es un reconocimiento oficial entregado por el Ministerio del Medio Ambiente de Chile que valida que tu empresa ha medido, reportado y gestionado su huella de carbono de forma profesional, siguiendo estándares internacionales como el GHG Protocol, la ISO 14064 y la NCh-ISO 14067 (para huella de productos).
               </p>
               <p class="lead-copy">
-                No es un sello de marketing: es el respaldo del Estado de que tus datos de emisiones son confiables, verificables y comparables. Hoy, ese respaldo se ha convertido en la diferencia entre quedar dentro o fuera de un contrato.
+                No es un sello de marketing: es evidencia técnica de que tus datos de emisiones son confiables, verificables y comparables. En licitaciones, ese respaldo puede ser la diferencia entre cumplir las bases o quedar fuera por falta de antecedentes ambientales.
               </p>
               <div class="surface-card p-4 mt-4">
                 <h3 class="h5">¿Quieres saber en qué nivel está tu empresa hoy?</h3>
@@ -170,12 +168,12 @@
           <div class="row gy-5 align-items-center">
             <div class="col-lg-6 fade-up">
               <p class="eyebrow">¿Qué es la medición de huella de carbono?</p>
-              <h2 class="section-title mb-4">Una radiografía clara de tus emisiones</h2>
+              <h2 class="section-title mb-4">La información ambiental que hoy piden las bases</h2>
               <p class="lead-copy">
                 Es el proceso técnico de cuantificar la totalidad de los Gases de Efecto Invernadero (GEI) que tu organización emite de forma directa e indirecta. No es solo un número: es una radiografía detallada de cómo tu empresa consume energía y recursos, y de dónde están tus mayores costos e ineficiencias ocultas.
               </p>
               <p class="lead-copy">
-                Medir es el primer paso. Sin una línea base sólida y bien levantada, no es posible reducir, ni certificar, ni responder a las exigencias del mercado.
+                Medir es el primer paso para responder con seguridad cuando una licitación pide cuantificación GEI, HuellaChile, ISO 14064, reportes ESG o antecedentes verificables de sostenibilidad.
               </p>
             </div>
             <div class="col-lg-6 fade-up">
@@ -214,16 +212,16 @@
               </div>
             </div>
             <div class="col-lg-7 fade-up">
-              <p class="eyebrow">¿Por qué es importante medir hoy?</p>
-              <h2 class="section-title mb-4">El mercado y la regulación ya no esperan</h2>
-              <p class="lead-copy">El mercado cambió. Inversionistas, clientes corporativos y consumidores exigen transparencia climática real, no promesas. Y la regulación va en la misma dirección:</p>
+              <p class="eyebrow">¿Por qué importa en licitaciones?</p>
+              <h2 class="section-title mb-4">Las compras públicas y privadas ya incorporan criterios climáticos</h2>
+              <p class="lead-copy">El mercado cambió. Mandantes públicos, clientes corporativos y grandes cadenas de suministro piden transparencia climática real, no promesas. Y la regulación va en la misma dirección:</p>
               <div class="accordion mt-4" id="regulationAccordion">
                 <div class="accordion-item">
                   <h3 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#lawPanel" aria-expanded="true" aria-controls="lawPanel">Ley Marco de Cambio Climático (Chile)</button>
                   </h3>
                   <div id="lawPanel" class="accordion-collapse collapse show" data-bs-parent="#regulationAccordion">
-                    <div class="accordion-body">Establece la meta país de carbono neutralidad al 2050 y empuja al sector productivo a reportar y reducir emisiones.</div>
+                    <div class="accordion-body">Establece la meta país de carbono neutralidad al 2050 y empuja al sector productivo a reportar y reducir emisiones, especialmente cuando busca contratar con organizaciones que incorporan criterios ambientales.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
@@ -235,7 +233,7 @@
                   </div>
                 </div>
               </div>
-              <p class="lead-copy mt-4 mb-0">Lo que ayer era voluntario y diferenciador, hoy se está volviendo un requisito de entrada al mercado.</p>
+              <p class="lead-copy mt-4 mb-0">Lo que ayer era voluntario y diferenciador, hoy se está volviendo un requisito de entrada para competir.</p>
             </div>
           </div>
         </div>
@@ -265,42 +263,42 @@
         <div class="container">
           <div class="fade-up mb-5">
             <p class="eyebrow">¿Para qué sirve concretamente?</p>
-            <h2 class="section-title">Medir y certificar tu huella de carbono te permite</h2>
+            <h2 class="section-title">Medir y certificar tu huella te permite postular mejor</h2>
           </div>
           <div class="row g-4">
             <div class="col-md-6 col-xl fade-up">
               <article class="benefit-card">
                 <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12M4 19h16M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-                <h3 class="h5">Acceder a licitaciones y contratos</h3>
-                <p class="text-secondary mb-0">Acceder a licitaciones y contratos que exigen criterios ambientales y ESG.</p>
+                <h3 class="h5">Cumplir bases de licitación</h3>
+                <p class="text-secondary mb-0">Responder requisitos ambientales, ESG y de Huella de Carbono con documentación técnica preparada.</p>
               </article>
             </div>
             <div class="col-md-6 col-xl fade-up">
               <article class="benefit-card">
                 <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 10h14M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-                <h3 class="h5">Detectar ineficiencias</h3>
-                <p class="text-secondary mb-0">Detectar ineficiencias operativas y reducir costos de energía y recursos.</p>
+                <h3 class="h5">Sumar respaldo verificable</h3>
+                <p class="text-secondary mb-0">Presentar datos de emisiones trazables y coherentes ante evaluadores, auditores o mandantes.</p>
               </article>
             </div>
             <div class="col-md-6 col-xl fade-up">
               <article class="benefit-card">
                 <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7v6c0 4 3 7 8 8 5-1 8-4 8-8V7l-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-                <h3 class="h5">Anticiparte a la regulación</h3>
-                <p class="text-secondary mb-0">Anticiparte a la regulación y gestionar riesgos futuros antes de que sean obligación.</p>
+                <h3 class="h5">Anticiparte a exigencias</h3>
+                <p class="text-secondary mb-0">Llegar preparado antes de que el requisito aparezca en nuevas bases o contratos marco.</p>
               </article>
             </div>
             <div class="col-md-6 col-xl fade-up">
               <article class="benefit-card">
                 <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19c5-1 8-4 9-9 2 1 4 1 7 0-1 6-5 9-11 10M8 15l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-                <h3 class="h5">Fijar metas de reducción</h3>
-                <p class="text-secondary mb-0">Establecer una línea base sólida para fijar metas de reducción, por ejemplo bajo SBTi.</p>
+                <h3 class="h5">Mejorar tu propuesta</h3>
+                <p class="text-secondary mb-0">Agregar evidencia ambiental concreta a tu oferta técnica y diferenciarte de competidores.</p>
               </article>
             </div>
             <div class="col-md-6 col-xl fade-up">
               <article class="benefit-card">
                 <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.9-5.4 2.9 1-6-4.4-4.3 6.1-.9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-                <h3 class="h5">Fortalecer reputación</h3>
-                <p class="text-secondary mb-0">Fortalecer tu reputación ante clientes, inversionistas y consumidores.</p>
+                <h3 class="h5">Abrir nuevos contratos</h3>
+                <p class="text-secondary mb-0">Mantenerte elegible frente a clientes que ya evalúan desempeño climático en sus proveedores.</p>
               </article>
             </div>
           </div>
@@ -312,7 +310,7 @@
           <div class="fade-up mb-5">
             <p class="eyebrow">La ruta de certificación</p>
             <h2 class="section-title mb-3">Los 4 sellos HuellaChile</h2>
-            <p class="lead-copy col-lg-8">HuellaChile reconoce el avance de cada organización mediante una secuencia de sellos. No hay que llegar al final de inmediato: el camino se construye paso a paso, y nosotros te acompañamos en cada uno.</p>
+            <p class="lead-copy col-lg-8">HuellaChile reconoce el avance de cada organización mediante una secuencia de sellos. Para muchas licitaciones, partir con una cuantificación sólida ya permite presentar antecedentes serios y avanzar luego hacia reducción, neutralización y excelencia.</p>
           </div>
           <div class="stepper p-3 p-lg-4 fade-up">
             <ol class="step-list">
@@ -344,7 +342,7 @@
                 <h3 class="h5">¿No sabes por dónde partir?</h3>
                 <p class="text-secondary mb-0">Te decimos cuál sello te conviene primero.</p>
               </div>
-              <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, necesito orientación para elegir el sello correcto en HuellaChile.">Pedir orientación por WhatsApp</button>
+              <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, necesito saber qué sello HuellaChile me sirve para una licitación.">Pedir orientación por WhatsApp</button>
             </div>
           </div>
         </div>
@@ -399,7 +397,7 @@
               <h2 class="section-title mb-4">Resultados que hablan por sí solos</h2>
               <p class="lead-copy">Nuestros clientes ya están marcando la diferencia.</p>
               <p class="lead-copy">Gracias a nuestro acompañamiento técnico, varias empresas han logrado obtener el Diploma de Reconocimiento de HuellaChile entregado por el Ministerio del Medio Ambiente de Chile.</p>
-              <p class="lead-copy">No solo levantamos un informe: te dejamos en condiciones de competir, reportar y crecer con respaldo oficial.</p>
+              <p class="lead-copy">No solo levantamos un informe: te dejamos en condiciones de competir, reportar y presentar respaldo oficial en procesos de licitación.</p>
               <div class="social-placeholder surface-card p-4 mt-4">
                 <span class="icon-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
                 <h3 class="h5">Prueba social preparada</h3>
@@ -443,13 +441,13 @@
         <div class="container">
           <div class="row align-items-center gy-4">
             <div class="col-lg-8 fade-up">
-              <p class="eyebrow text-lime">¿Listo para certificar?</p>
-              <h2 class="display-5 text-white mb-3">¿Listo para certificar la huella de carbono de tu empresa?</h2>
-              <p class="fs-5 mb-0">Obtén el respaldo oficial del Ministerio del Medio Ambiente y destaca en licitaciones, sostenibilidad y reputación corporativa. Te acompañamos en todo el proceso, en cualquier región de Chile.</p>
+              <p class="eyebrow text-lime">¿Listo para postular?</p>
+              <h2 class="display-5 text-white mb-3">Certifica tu Huella de Carbono antes de la próxima licitación</h2>
+              <p class="fs-5 mb-0">Obtén respaldo técnico y oficial para presentar mejores antecedentes ambientales en licitaciones públicas, privadas y evaluaciones de proveedores. Te acompañamos en todo el proceso, en cualquier región de Chile.</p>
             </div>
             <div class="col-lg-4 fade-up">
               <div class="d-grid gap-3">
-                <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, quiero empezar mi certificación hoy.">Empezar mi certificación hoy</button>
+                <button class="btn btn-whatsapp whatsapp-action" type="button" data-message="Hola SolGe Ambiental, quiero certificar mi Huella de Carbono para licitaciones.">Preparar mi licitación</button>
                 <a class="btn btn-outline-light" href="mailto:phidalgo@solgeambiental.cl">Escríbenos un correo</a>
               </div>
             </div>
@@ -463,10 +461,10 @@
         <div class="row gy-5">
           <div class="col-lg-5 fade-up">
             <div class="d-flex align-items-center gap-3 mb-4">
-              <img class="brand-logo rounded-circle bg-white" src="./LogoSolgeAmbiental.webp" alt="Logo SolGe Ambiental" width="48" height="48" />
+              <img class="brand-logo footer-logo" src="./LogoSolgeAmbiental.webp" alt="Logo SolGe Ambiental" width="150" height="56" />
               <div>
                 <p class="h5 mb-0 text-white">SolGe Ambiental</p>
-                <p class="mb-0 text-white-50">Calcula y certifica tu Huella de Carbono con respaldo del Ministerio del Medio Ambiente.</p>
+                <p class="mb-0 text-white-50">Calcula y certifica tu Huella de Carbono para competir mejor en licitaciones.</p>
               </div>
             </div>
             <p><strong>Email:</strong> <a class="link-light" href="mailto:phidalgo@solgeambiental.cl">phidalgo@solgeambiental.cl</a></p>

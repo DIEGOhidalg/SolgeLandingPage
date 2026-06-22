@@ -35,9 +35,25 @@ li,
   }
 }
 
+.brand-only {
+  flex: 0 0 auto;
+  max-width: min(42vw, 170px);
+  padding-bottom: .4rem;
+  padding-top: .4rem;
+}
+
 .brand-logo {
-  width: 48px;
-  height: 48px;
+  display: block;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+  width: min(42vw, 170px);
+}
+
+.footer-logo {
+  background: #fff;
+  border-radius: .75rem;
+  padding: .35rem;
   object-fit: contain;
 }
 
@@ -226,6 +242,27 @@ li,
   .form-control::placeholder {
     color: rgba($slate, .82);
   }
+}
+
+.form-status {
+  border-radius: .85rem;
+  display: none;
+  font-size: .93rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: .75rem .9rem;
+}
+
+.form-status--success {
+  background: rgba($brand, .1);
+  color: $brand-700;
+  display: block;
+}
+
+.form-status--error {
+  background: rgba(#dc3545, .1);
+  color: #b02a37;
+  display: block;
 }
 
 .section-pad {

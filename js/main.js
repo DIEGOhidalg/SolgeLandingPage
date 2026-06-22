@@ -1,9 +1,10 @@
 const header = document.querySelector(".site-header");
 const revealElements = document.querySelectorAll(".fade-up");
 const form = document.querySelector("#contact-form");
+const formStatus = document.querySelector("#form-status");
 const mobileMenu = document.querySelector("#mobileMenu");
 const whatsappBase = "https://wa.me/56950692595?text=";
-const defaultWhatsAppMessage = "Hola SolGe Ambiental, quiero certificar la huella de carbono de mi empresa.";
+const defaultWhatsAppMessage = "Hola SolGe Ambiental, necesito certificar mi Huella de Carbono para licitaciones.";
 
 function updateHeader() {
   if (!header) return;
@@ -73,13 +74,23 @@ function validatePhone(value) {
   return /^(?:\+?56)?9\d{8}$/.test(cleaned);
 }
 
-function buildWhatsAppLink(values) {
-  const message = `Hola SolGe Ambiental, quiero certificar la huella de carbono de mi empresa. Mi nombre es ${values.names}. Empresa: ${values.company}. WhatsApp: ${values.whatsapp}. Email: ${values.email}.${values.message ? ` Mensaje: ${values.message}` : ""}`;
-  return whatsappBase + encodeURIComponent(message);
+function setFormStatus(message = "", type = "") {
+  if (!formStatus) return;
+  formStatus.textContent = message;
+  formStatus.className = type ? `form-status form-status--${type} mb-3` : "form-status mb-3";
 }
 
-form?.addEventListener("submit", (event) => {
+function setSubmitting(isSubmitting) {
+  if (!form) return;
+  const button = form.querySelector('button[type="submit"]');
+  if (!button) return;
+  button.disabled = isSubmitting;
+  button.textContent = isSubmitting ? "Enviando..." : "Enviar solicitud";
+}
+
+form?.addEventListener("submit", async (event) => {
   event.preventDefault();
+  setFormStatus();
 
   const fields = {
     names: form.querySelector("#names"),
@@ -117,17 +128,26 @@ form?.addEventListener("submit", (event) => {
 
   if (!isValid) return;
 
-  window.open(
-    buildWhatsAppLink({
-      names: fields.names.value.trim(),
-      whatsapp: fields.whatsapp.value.trim(),
-      email: fields.email.value.trim(),
-      company: fields.company.value.trim(),
-      message: fields.message?.value.trim() || "",
-    }),
-    "_blank",
-    "noopener"
-  );
+  try {
+    setSubmitting(true);
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.message || "No pudimos enviar tu solicitud. Inténtalo nuevamente o escríbenos por WhatsApp.");
+    }
+
+    form.reset();
+    setFormStatus("Solicitud enviada. Te contactaremos pronto para revisar tu licitación.", "success");
+  } catch (error) {
+    setFormStatus(error.message, "error");
+  } finally {
+    setSubmitting(false);
+  }
 });
 
 document.querySelectorAll(".whatsapp-action").forEach((button) => {

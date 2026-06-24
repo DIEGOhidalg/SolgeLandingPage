@@ -37,17 +37,17 @@ li,
 
 .brand-only {
   flex: 0 0 auto;
-  max-width: min(42vw, 170px);
-  padding-bottom: .4rem;
-  padding-top: .4rem;
+  max-width: min(64vw, 320px);
+  padding-bottom: .2rem;
+  padding-top: .2rem;
 }
 
 .brand-logo {
   display: block;
   height: auto;
-  max-height: 58px;
+  max-height: 112px;
   object-fit: contain;
-  width: min(42vw, 170px);
+  width: min(64vw, 320px);
 }
 
 .footer-logo {
@@ -156,6 +156,13 @@ li,
   }
 }
 
+.hero-clean {
+  background-image:
+    linear-gradient(90deg, rgba($dark-green, .96), rgba($dark-green, .72)),
+    linear-gradient(135deg, rgba($brand-700, .65), rgba($dark-green, .9)),
+    url("../../SantiagoChileMontañas.jpg");
+}
+
 .hero-title {
   color: #fff;
   font-size: clamp(2rem, 4.5vw, 3.5rem);
@@ -194,6 +201,12 @@ li,
 .hero-subtitle {
   color: #fff;
   max-width: 58ch;
+}
+
+.hero-kicker {
+  color: $lime;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 800;
 }
 
 .trust-line {
@@ -474,7 +487,98 @@ li,
   padding: .75rem 1rem;
 }
 
-.social-placeholder {
+.mini-steps {
+  display: grid;
+  gap: 1rem;
+}
+
+.mini-step {
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid rgba($dark-green, .1);
+  border-radius: 1.25rem;
+  box-shadow: $box-shadow;
+  display: grid;
+  gap: .35rem;
+  grid-template-columns: auto 1fr;
+  padding: 1rem;
+
+  span {
+    align-items: center;
+    background: $dark-green;
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-size: .9rem;
+    font-weight: 800;
+    grid-row: span 2;
+    height: 38px;
+    justify-content: center;
+    width: 38px;
+  }
+
+  strong {
+    color: $dark-green;
+    line-height: 1.2;
+  }
+
+  p {
+    color: $slate;
+    font-size: .95rem;
+    margin: 0;
+  }
+}
+
+.metric-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metric-card {
+  background: rgba($sage, .78);
+  border: 1px solid rgba($brand-700, .14);
+  border-radius: 1.25rem;
+  padding: 1rem;
+
+  strong {
+    color: $brand-700;
+    display: block;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1;
+  }
+
+  span {
+    color: $slate;
+    display: block;
+    font-size: .9rem;
+    font-weight: 700;
+    margin-top: .45rem;
+  }
+}
+
+.proof-metric {
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 1.25rem;
+  color: #fff;
+  padding: 1.25rem;
+
+  strong {
+    color: $lime;
+    display: block;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: .9;
+  }
+
+  span {
+    color: rgba(255, 255, 255, .86);
+    display: block;
+    font-weight: 700;
+    margin-top: .75rem;
+  }
+}
+
+.proof-card {
   border-style: dashed;
   display: grid;
   gap: .35rem;
@@ -482,6 +586,193 @@ li,
 
   .icon-mark {
     grid-row: span 2;
+    margin-bottom: 0;
+  }
+}
+
+.diploma-showcase {
+  background:
+    radial-gradient(circle at 12% 18%, rgba($lime, .14), transparent 28%),
+    linear-gradient(135deg, $dark-green, darken($dark-green, 6%));
+  color: #fff;
+  overflow: hidden;
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, .76);
+}
+
+.featured-diploma-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.featured-diploma {
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 1.25rem;
+  box-shadow: 0 28px 80px -34px rgba(#000, .7);
+  color: $ink;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+
+  &:hover {
+    box-shadow: 0 34px 92px -36px rgba(#000, .82);
+    transform: translateY(-4px);
+  }
+}
+
+.pdf-preview {
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(180deg, #fff, $bone);
+  border-bottom: 1px solid rgba($dark-green, .1);
+  overflow: hidden;
+  position: relative;
+
+  iframe {
+    border: 0;
+    height: 118%;
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 118%;
+  }
+}
+
+.featured-diploma-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: .75rem;
+  padding: 1.1rem;
+
+  span {
+    color: $brand-700;
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  a {
+    color: $brand-700;
+    font-weight: 800;
+    margin-top: auto;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.diploma-panel {
+  background: rgba(255, 255, 255, .72);
+  border: 1px solid rgba($dark-green, .1);
+  border-radius: 1.5rem;
+  box-shadow: $box-shadow;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.diploma-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba($bone, .96));
+  border: 1px solid rgba($dark-green, .12);
+  border-radius: 1.25rem;
+  color: $ink;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  height: 100%;
+  min-height: 210px;
+  padding: 1.25rem;
+  text-decoration: none;
+  transition: box-shadow .2s ease, transform .2s ease;
+
+  &::before {
+    background:
+      linear-gradient(135deg, rgba($lime, .45), rgba($brand, .16)),
+      repeating-linear-gradient(90deg, transparent 0 14px, rgba($dark-green, .06) 15px 16px);
+    border-radius: .8rem;
+    content: "";
+    display: block;
+    height: 62px;
+  }
+
+  span {
+    color: $brand-700;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  strong {
+    flex: 1;
+    line-height: 1.25;
+  }
+
+  small {
+    color: $brand-700;
+    font-weight: 800;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: $box-shadow-lg;
+    color: $ink;
+    transform: translateY(-3px);
+  }
+}
+
+.service-steps {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-step {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba($sage, .62));
+  border: 1px solid rgba($dark-green, .1);
+  border-radius: 1.25rem;
+  box-shadow: $box-shadow;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+
+  span {
+    align-items: center;
+    background: $dark-green;
+    border: 5px solid rgba($lime, .34);
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-weight: 800;
+    height: 58px;
+    justify-content: center;
+    margin-bottom: 1rem;
+    width: 58px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: .75rem;
+  }
+
+  p {
+    color: $slate;
     margin-bottom: 0;
   }
 }
@@ -587,6 +878,12 @@ li,
   }
 }
 
+.cta-clean {
+  background-image:
+    linear-gradient(90deg, rgba($dark-green, .97), rgba($dark-green, .78)),
+    url("../../PatagoniaChile.jpg");
+}
+
 .floating-whatsapp {
   align-items: center;
   background: $whatsapp;
@@ -684,6 +981,19 @@ li,
 
   .certificate-carousel .carousel-control-next {
     right: .25rem;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-diploma-grid,
+  .service-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-preview {
+    aspect-ratio: 4 / 3;
   }
 }
 

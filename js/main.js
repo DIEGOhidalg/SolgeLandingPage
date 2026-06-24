@@ -4,7 +4,7 @@ const form = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
 const mobileMenu = document.querySelector("#mobileMenu");
 const whatsappBase = "https://wa.me/56950692595?text=";
-const defaultWhatsAppMessage = "Hola SolGe Ambiental, necesito certificar mi Huella de Carbono para licitaciones.";
+const defaultWhatsAppMessage = "Hola Solge Ambiental, quiero el Sello HuellaChile para mi empresa.";
 
 function updateHeader() {
   if (!header) return;
@@ -97,6 +97,7 @@ form?.addEventListener("submit", async (event) => {
     whatsapp: form.querySelector("#whatsapp"),
     email: form.querySelector("#email"),
     company: form.querySelector("#company"),
+    teamSize: form.querySelector("#team-size"),
     message: form.querySelector("#message"),
   };
 
@@ -107,6 +108,7 @@ form?.addEventListener("submit", async (event) => {
     [fields.whatsapp, "Déjanos un WhatsApp chileno para contactarte."],
     [fields.email, "Necesitamos un correo para enviarte información."],
     [fields.company, "Indica el nombre de tu empresa."],
+    [fields.teamSize, "Indica cuántas personas trabajan en tu empresa."],
   ].forEach(([field, message]) => {
     if (!field.value.trim()) {
       setFieldError(field, message);
@@ -126,6 +128,11 @@ form?.addEventListener("submit", async (event) => {
     isValid = false;
   }
 
+  if (fields.teamSize.value.trim() && Number(fields.teamSize.value) < 1) {
+    setFieldError(fields.teamSize, "Ingresa un número de personas mayor a cero.");
+    isValid = false;
+  }
+
   if (!isValid) return;
 
   try {
@@ -142,7 +149,7 @@ form?.addEventListener("submit", async (event) => {
     }
 
     form.reset();
-    setFormStatus("Solicitud enviada. Te contactaremos pronto para revisar tu licitación.", "success");
+    setFormStatus("Solicitud enviada. Te contactaremos pronto para revisar el proceso de Diploma y Sello HuellaChile.", "success");
   } catch (error) {
     setFormStatus(error.message, "error");
   } finally {

@@ -28,6 +28,7 @@ $names = field('names');
 $whatsapp = field('whatsapp');
 $email = field('email');
 $company = field('company');
+$teamSize = field('team_size');
 $message = field('message');
 
 $errors = [];
@@ -46,6 +47,10 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 if ($company === '') {
     $errors[] = 'Ingresa el nombre de tu empresa.';
+}
+
+if ($teamSize === '' || !ctype_digit($teamSize) || (int)$teamSize < 1) {
+    $errors[] = 'Ingresa el numero de personas de tu empresa.';
 }
 
 if ($errors !== []) {
@@ -67,6 +72,7 @@ $body = implode("\n", [
     '',
     'Nombre: ' . $names,
     'Empresa: ' . $company,
+    'Numero de personas: ' . $teamSize,
     'WhatsApp: ' . $whatsapp,
     'Email: ' . $email,
     '',
